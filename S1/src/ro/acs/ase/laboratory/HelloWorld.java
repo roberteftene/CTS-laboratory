@@ -3,7 +3,7 @@ package ro.acs.ase.laboratory;
 public class HelloWorld {
 
     public static void main(String[] args) {
-        System.out.println("Configuration");
+        System.out.println("Hello world");
     }
 
 }

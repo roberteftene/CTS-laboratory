@@ -26,7 +26,8 @@ hs_err_pid*
 # Reference: https://intellij-support.jetbrains.com/hc/en-us/articles/206544839
 
 # User-specific stuff
-idea/
+**/.idea/
+.idea/
 .idea/**/workspace.xml
 .idea/**/tasks.xml
 .idea/**/usage.statistics.xml
@@ -59,7 +60,7 @@ idea/
 # .idea/modules.xml
 # .idea/*.iml
 # .idea/modules
-# *.iml
+*.iml
 # *.ipr
 
 # CMake
@@ -70,7 +71,6 @@ cmake-build-*/
 
 # File-based project format
 *.iws
-*.iml
 
 # IntelliJ
 out/

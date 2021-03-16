@@ -1,31 +1,42 @@
 package ro.ase.acs.cts.g1092.refactor.phase5;
 
-import ro.ase.acs.cts.g1092.refactor.exceptions.InvalidValueException;
+import ro.ase.acs.cts.g1092.refactor.exceptions.InvalidPriceException;
+import ro.ase.acs.cts.g1092.refactor.exceptions.InvalidYearsSinceRegistrationException;
+import ro.ase.acs.cts.g1092.refactor.phase5.marketing.MarketingStrategyInterface;
 
 public class SalesStrategy {
 
-    public static int FIDELITY_YEARS_THRESHOLD = 10;
-    public static float MAX_FIDELITY_DISCOUNT = 0.15f;
+    private MarketingStrategyInterface marketingStrategyInterface;
+    private SalesValidatorsInterface validator;
 
-
-    public static float getFidelityDiscount(int yearsSinceRegistration) {
-        return (yearsSinceRegistration > FIDELITY_YEARS_THRESHOLD) ? MAX_FIDELITY_DISCOUNT : (float)yearsSinceRegistration/100;
+    public SalesStrategy(MarketingStrategyInterface marketingStrategyInterface, SalesValidatorsInterface validator) {
+        if(marketingStrategyInterface == null || validator == null) {
+            throw new NullPointerException();
+        }
+        this.marketingStrategyInterface = marketingStrategyInterface;
+        this.validator = validator;
     }
 
-    public static float getPriceWithDiscount(float initialPrice,float discount, float fidelityDiscount) {
+    //Optional: Allowing the change at runtime of the marketing strategy. Depends on your design specs
+    public void setMarketingStrategyInterface(MarketingStrategyInterface marketingStrategyInterface) {
+        if(marketingStrategyInterface == null) {
+            throw new NullPointerException();
+        }
+        this.marketingStrategyInterface = marketingStrategyInterface;
+    }
+
+    public static float getPriceWithDiscount(float initialPrice, float discount, float fidelityDiscount) {
         float initialDiscount = initialPrice - (discount * initialPrice);
         return initialDiscount * ( 1 - fidelityDiscount);
     }
 
-    public float computeFinalPrice(ProductType productType, float initialPrice, int yearsSinceRegistration) throws InvalidValueException {
+    public float computeFinalPrice(ProductType productType, float initialPrice, int yearsSinceRegistration) throws InvalidPriceException, InvalidYearsSinceRegistrationException {
 
-        if(initialPrice <= 0 
-                || yearsSinceRegistration < 0) {
-            throw new InvalidValueException();
-        }
+        validator.validatePrice(initialPrice);
+        validator.validateYearsSinceRegistration(yearsSinceRegistration);
         
         float fidelityDiscount =
-                (productType != ProductType.NEW) ?  getFidelityDiscount(yearsSinceRegistration) : 0;
+                (productType != ProductType.NEW) ?  marketingStrategyInterface.getFidelityDiscount(yearsSinceRegistration) : 0;
 
         return getPriceWithDiscount(initialPrice, productType.getDiscount(),fidelityDiscount);
 

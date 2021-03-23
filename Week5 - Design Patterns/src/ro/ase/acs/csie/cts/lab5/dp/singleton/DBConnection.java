@@ -11,10 +11,26 @@ public class DBConnection {
     private static DBConnection instance = null;
 
     //the method used to return the reference to the unique object
+    //is using default/app settings values
     public static DBConnection getInstance() {
         if(instance == null)  {
             instance = new DBConnection();
         }
+        return instance;
+    }
+
+    //Not so good because is miss leading
+    public static DBConnection getInstance(
+            String socket, String schema) {
+        if(instance == null) {
+            instance = new DBConnection(socket,schema);
+        }
+
+        if(!socket.equals(instance.socket)
+        ||schema.equals(instance.schema)) {
+            throw new UnsupportedOperationException("You already have an active connection");
+        }
+
         return instance;
     }
 

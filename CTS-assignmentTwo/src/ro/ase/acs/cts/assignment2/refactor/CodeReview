@@ -1,0 +1,61 @@
+1. Meaningful Names
+- access methods doesn't have proper names, they should respect access
+  methods naming rules, such as capital case and 'get/set' prefix
+- the names of the class members are not suggestive or doesn't respect
+  naming conventions such as CamelCase.
+- functions names are not describing what they do
+
+2. Formatting
+
+- in the case of the methods the format is not applied so it is difficult
+  to read the solution
+- there are comments in the solution, should be removed and placed in
+  a proper location, such as Source Control, if required.
+
+3. Functions
+
+- the calculate function is hard to read and it is not doing only one thing
+  there are multiple computations
+- the calculate function doesn't validates the parameter in any way
+- if the function should terminate there should not be an else statement
+- the calculate function contains variable initialized but never used
+- Calculate method contains redundant statements such as the use of an
+  object of type Account insteand using directly accounts[i]
+- the calculate method contains too many hardcoded value
+- we can change the adding fee logic into an switch case block
+- the print method is not doing anything so should be removed can be used
+  the toString method to print the account
+
+4. Fundamentals
+
+- the solution violate dry principle, the validation of the value parameter
+  is made in the set method and in the constructor, can be reused
+- the fields of the class should be private
+- the class have unused methods, functions should be implemented only if they
+  are going to be used
+
+5. Exceptions
+- change the exception to be more suggestive for setValue and for constructor
+
+6. General Programming
+- toString method should be overridden
+- the fields and the methods should adhere to generally accepted naming
+  conventions
+
+7. Enums and Annotations
+- should be used an enum instead constants int
+
+8. Classes and Interfaces
+- remove the dependency on how the fee it is calculated, that should be
+  managed by the financial department
+- if the fields are public then there is no need of accessor methods
+  , but it is better to use private fields instead public and access methods
+- regarding single responsibility principle, the class should only do one thing
+- the loan details can be outsource from the class
+
+
+
+
+
+
+

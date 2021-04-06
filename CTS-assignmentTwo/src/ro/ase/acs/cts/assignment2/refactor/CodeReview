@@ -52,7 +52,9 @@
   , but it is better to use private fields instead public and access methods
 - regarding single responsibility principle, the class should only do one thing
 - the loan details can be outsource from the class
-
+- the calculate method is more related with the loan than with a general account
+  so it would be better to be injected in loan class
+- daysActive is never initialized and there is no way to set a value for it
 
 
 

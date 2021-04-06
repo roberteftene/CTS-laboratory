@@ -1,26 +1,34 @@
 package ro.ase.acs.cts.assignment2.refactor.models;
 
-public class Account {
+import ro.ase.acs.cts.assignment2.refactor.services.bankservice.RateService;
+
+public class Account implements RateService {
 
     private int daysSinceOpened;
     private EAccountType accountType;
     private Loan loan;
 
-    public Account(int daysSinceOpened, EAccountType accountType, Loan loan) {
-        this.daysSinceOpened = daysSinceOpened;
-        this.accountType = accountType;
-        this.loan = loan;
-    }
+    private Account(){}
 
-    @Override
-    public String toString() {
-        //TODO Implement to string
-        return super.toString();
+    public Account(int daysSinceOpened, EAccountType accountType, Loan loan) {
+        if(daysSinceOpened < 0)
+        {
+            throw new IllegalArgumentException("Accounts must be opened by at least one day");
+        }else {
+            this.daysSinceOpened = daysSinceOpened;
+        }
+        this.accountType = accountType;
+        this.setLoan(loan);
     }
 
     public void setLoan(Loan loan) {
-        this.loan = loan;
+        if(loan == null) {
+            this.loan = new Loan();
+        } else {
+            this.loan = loan;
+        }
     }
+
 
     public int getDaysSinceOpened() {
         return daysSinceOpened;
@@ -32,5 +40,15 @@ public class Account {
 
     public Loan getLoan() {
         return loan;
+    }
+
+    @Override
+    public String toString() {
+        return "{ Number of days: " + this.daysSinceOpened + " Account type: " + this.accountType + " Loan: " + this.loan.toString();
+    }
+
+    @Override
+    public double getMonthlyRate() {
+        return this.loan.getMonthlyRate();
     }
 }

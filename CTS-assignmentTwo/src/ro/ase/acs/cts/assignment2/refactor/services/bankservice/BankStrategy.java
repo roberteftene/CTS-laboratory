@@ -6,6 +6,9 @@ import java.util.List;
 
 public interface BankStrategy {
 
-    double computeLoanTax(List<Account> accounts);
+    int INTEREST_PERIOD = 365;
+    double BROKER_FEE = 0.0125;
+
+    double computeAccountsTotalFees(List<Account> accounts);
 
 }

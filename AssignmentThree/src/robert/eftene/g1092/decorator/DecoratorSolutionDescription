@@ -1,0 +1,18 @@
+Bachelor topic title:
+    Web application for Online Business Promotion
+
+Description of the problem:
+    The users will have the ability to add liked business in a liked services list towards
+    benefiting by some functionalities. The application should display this selected services in
+    a different way.
+
+Advantages:
+    - the extension of certain objects is dynamically made, at run-time
+    - multiple decoration can be easily implemented
+    - the decoration is transparent
+
+Disadvantages:
+    - can generate multiple objects which may look the same, but have different behaviors
+      which will result a code difficult to understand
+    - a decorator wraps the objects, therefore is not identical with the initial objects
+

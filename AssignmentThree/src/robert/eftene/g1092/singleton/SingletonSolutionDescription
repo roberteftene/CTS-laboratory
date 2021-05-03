@@ -1,0 +1,15 @@
+Bachelor topic title:
+    Web application for Online Business Promotion
+
+Description of the problem:
+    Towards managing the data needed by all the users for interacting with the application we must have
+    an unique connection to a database.
+
+Advantages:
+    - unique instance of the connection to a certain database
+    - easy to manage the access to the data
+
+Disadvantages:
+    - the overall performance of the application may be affected by the presence of only one connection
+    - the pattern may affect the processes of unit testing
+

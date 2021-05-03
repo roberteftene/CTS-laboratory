@@ -1,0 +1,17 @@
+Bachelor topic title:
+    Web application for Online Business Promotion
+
+Description of the problem:
+    The application will allow business owners to get reports regarding the situation of their
+    business whenever they want. The statistics will be filtered by the user who will chose
+    a certain period of time such as, last week, last month, today, etc. The request for the
+    reports can take a lot of time so the application will develop a solution that will increase
+    the performance by cloning a certain report and filtering the clones after that by period.
+
+Advantages:
+    - no constructor call needed
+    - request are handled much performant
+
+Disadvantages:
+    - risk of generating shallow copies
+

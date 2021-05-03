@@ -1,0 +1,18 @@
+Bachelor topic title:
+    Web application for Online Business Promotion
+
+Description of the problem:
+    Towards offering the best experience for our users, we want to allow in the application
+    multiple types of users with different roles. These roles are: general user, business owner and administrator.
+    In order to optimize the process of creation of these types of users we need a solution that provide us
+    a centralized manner of developing based on mandatory fields such as name, email and password.
+
+Advantages:
+    - new users can be added that belong to the same family without generating errors
+    - it implements the dependency inversion principle
+    - increase the control over the creation of the users
+
+Disadvantages:
+    - new objects can't be generated
+    - the classes cannot be extended
+

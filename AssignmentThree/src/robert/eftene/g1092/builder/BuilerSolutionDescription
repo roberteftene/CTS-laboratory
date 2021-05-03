@@ -1,0 +1,16 @@
+Bachelor topic title:
+    Web application for Online Business Promotion
+
+Description of the problem:
+    The solution will allow multiple types of users with different features. As an owner type of user, I can add
+    my service, or my business in the application. For that, only a few characteristics are mandatory
+    such as the name, the category and the description.
+
+Advantages:
+    - complex object can be created independent of their components
+    - it offers flexibility to the users when adding a new service
+
+Disadvantages:
+    - the overall performance of the application may be affected by the presence of only one connection
+    - the solution require code duplication
+

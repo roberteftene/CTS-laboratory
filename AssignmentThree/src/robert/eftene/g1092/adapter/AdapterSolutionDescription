@@ -1,0 +1,16 @@
+Bachelor topic title:
+    Web application for Online Business Promotion
+
+Description of the problem:
+    Our application allow users to submit bookings for desired services. Some of the
+    businesses present in the application use a third party application for reservations.
+    The application integrates the third party solution which has similar functionalities.
+
+Advantages:
+    - the existing class are not modified towards creating new context of usage.
+    - it is easy to defined adapters for any context
+
+Disadvantages:
+    - the solution is based upon multiple inheritance which is not possible in Java
+      so for implementing we will use interfaces and composition
+

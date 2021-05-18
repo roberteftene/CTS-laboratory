@@ -11,7 +11,7 @@ public class Model3DFactory {
         models.put(ModelType.LEVEL_BOSS.toString(), new Model3DFlyweight());
     }
     static Model3DFlyweightInterface getModel(ModelType type) {
-        return  models.get(type);
+        return  models.get(type.toString());
     }
 
 }

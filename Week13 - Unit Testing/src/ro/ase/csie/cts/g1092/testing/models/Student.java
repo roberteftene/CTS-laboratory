@@ -34,6 +34,9 @@ public class Student {
 
 
     public void setName(String name) throws WrongNameException {
+        if(name.length() < MIN_NAME_SIZE || name.length() >  MAX_NAME_SIZE) {
+            throw new WrongNameException();
+        }
         this.name = name;
     }
 
@@ -44,6 +47,9 @@ public class Student {
 
 
     public void setAge(int age) throws WrongAgeException {
+        if(age < MIN_AGE || age > MAX_AGE) {
+            throw new WrongAgeException();
+        }
         this.age = age;
     }
 
@@ -69,6 +75,19 @@ public class Student {
         }
         return sum/this.grades.size();
 
+    }
+
+    public int getMinGrade() {
+        int min = 0;
+        if(this.grades.size() > 0) {
+            min = this.grades.get(0);
+            for(int grade : this.grades) {
+                if(min > grade) {
+                    min = grade;
+                }
+            }
+        }
+        return min;
     }
 }
 
